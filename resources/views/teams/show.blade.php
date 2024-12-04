@@ -1,5 +1,4 @@
 <!-- resources/views/teams/show.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,19 +13,17 @@
         <h5>City: {{ $team->city }}</h5>
 
         <h3>Players:</h3>
-        @if ($team->players->isEmpty())
+        @if ($players->isEmpty()) <!-- Check if the $players collection is empty -->
             <p>No players available.</p>
         @else
             <ul>
-                @foreach ($team->players as $player)
+                @foreach ($players as $player) <!-- Loop through the $players collection -->
                     <li>{{ $player->name }} ({{ $player->position }})</li>
                 @endforeach
             </ul>
         @endif
 
-
-            <a href="{{ route('teams.showAddPlayerForm', $team->id) }}" class="btn btn-success mt-3">Add Player</a>
-        </form>
+        <a href="{{ route('teams.showAddPlayerForm', $team->id) }}" class="btn btn-success mt-3">Add Player</a>
 
         <a href="{{ route('teams.index') }}" class="btn btn-secondary mt-3">Back to Teams</a>
     </div>

@@ -38,7 +38,8 @@
                             <td>{{ $team->name }}</td>
                             <td>{{ $team->city }}</td>
                             <td>
-                                <a href="{{ route('teams.show', $team->id) }}" class="btn btn-info">View</a>
+                                <a href="{{ route('teams.show', $team) }}" class="btn btn-info">View</a>
+
                                 <a href="{{ route('teams.edit', $team->id) }}" class="btn btn-warning">Edit</a>
                                 <form action="{{ route('teams.destroy', $team->id) }}" method="POST" style="display:inline;">
                                     @csrf

@@ -11,11 +11,11 @@ class Player extends Model
 
     protected $fillable = ['name', 'position', 'team_id'];
 
-    // A player belongs to a team
     public function team()
     {
         return $this->belongsTo(Team::class);
     }
 }
+
 
 

@@ -36,9 +36,14 @@ class TeamController extends Controller
 
     // Show a specific team
     public function show(Team $team)
-    {
-        return view('teams.show', compact('team'));
-    }
+{
+    // Eager load the players associated with the team
+    $players = $team->players; // This fetches the players related to the team
+
+    // Pass both the team and players to the view
+    return view('teams.show', compact('team', 'players'));
+}
+
 
     // Show form to edit an existing team
     public function edit(Team $team)

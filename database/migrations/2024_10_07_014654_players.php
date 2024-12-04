@@ -12,11 +12,9 @@ class CreatePlayersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
-            $table->unsignedBigInteger('team_id');  // Foreign key
-            $table->timestamps();
-
-            // Foreign key constraint
+            $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -25,3 +23,4 @@ class CreatePlayersTable extends Migration
         Schema::dropIfExists('players');
     }
 }
+
